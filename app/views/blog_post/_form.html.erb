@@ -1,0 +1,24 @@
+<%= form_with model: @blog_post do |form|%>
+<div>
+    <% if form.object.errors.any? %>
+        <% form.object.errors.full_messages.each do |message| %>
+        <div>
+            <%= message%>
+        </div>
+        <% end %>
+    <% end %>
+</div>
+<div>
+  <h1><%= form.label :title%></h1>
+  <p><%= form.text_field :title %></p>
+</div>
+<div>
+  <h1><%= form.label :content%></h1>
+  <p><%= form.rich_text_area :content %></p>
+</div>
+<div>
+  <h1><%= form.label :published_at%></h1>
+  <p><%= form.datetime_select :published_at , include_blank: true%></p>
+</div>
+<%= form.button %>
+<% end %>
