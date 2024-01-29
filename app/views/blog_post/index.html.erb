@@ -9,6 +9,9 @@
 <p><%= post.content%></p>
 <% end %>
 
+<%# Render a view helper in your views (skipping nav links for empty pages) %>
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
 <% if user_signed_in? %>
     <%= link_to "new post", new_blog_post_path%>
 <% end %>
